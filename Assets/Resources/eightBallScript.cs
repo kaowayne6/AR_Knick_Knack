@@ -41,7 +41,9 @@ public class eightBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Dot(transform.up, Vector3.down) > 0){
+        //print("Transform: " + transform.up.y + "\n");
+        if (transform.up.y < -0.9f){
+            print("Transform: " + transform.up.y + "\n");
             int num = Random.Range(0, size);
             string randPhrase = phrase[num];  
             ballText.GetComponent<TextMeshPro>().text = randPhrase;
