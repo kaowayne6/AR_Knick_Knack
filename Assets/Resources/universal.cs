@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class universal : MonoBehaviour
 {
+    //public GameObject target;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
 void Update ()
 {
-    transform.Rotate (0,45*Time.deltaTime, 0); 
+    //transform.RotateAround(target.transform.position, Vector3.down, 45*Time.deltaTime);
+    
+    
+    transform.Rotate(0,45*Time.deltaTime, 0); 
 }
 }
