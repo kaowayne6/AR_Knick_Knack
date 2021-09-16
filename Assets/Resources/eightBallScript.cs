@@ -7,6 +7,8 @@ public class eightBallScript : MonoBehaviour
 {
     public GameObject ballText;
     int size;
+    static bool isFlipped = false;
+    static string strPhrase = "";
     string[] phrase;
 
     // Start is called before the first frame update
@@ -41,12 +43,24 @@ public class eightBallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //flipped and isFlipped = do Nothing
+        //flipped and !isFlipped = Change phrase / empty text / change isFlipped to true
+        //not flipped and isFlipped = isFlipped to false / Display text
+        //not flipped and !isFlipped = do Nothing
+
         //print("Transform: " + transform.up.y + "\n");
-        if (transform.up.y < -0.9f){
+        if (transform.up.y < 0f && !isFlipped){
             print("Transform: " + transform.up.y + "\n");
+            isFlipped = true;
             int num = Random.Range(0, size);
-            string randPhrase = phrase[num];  
-            ballText.GetComponent<TextMeshPro>().text = randPhrase;
+            strPhrase = phrase[num];  
+            ballText.GetComponent<TextMeshPro>().text = "";
+        }
+
+        else if(transform.up.y >= 0f && isFlipped){
+            print("Transform in else if");
+            ballText.GetComponent<TextMeshPro>().text = strPhrase;
+            isFlipped = false;
         }
     }
 }
