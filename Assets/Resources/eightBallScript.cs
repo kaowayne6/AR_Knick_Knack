@@ -7,6 +7,7 @@ using TMPro;
 public class eightBallScript : MonoBehaviour
 {
     public GameObject ballText;
+    public GameObject knack;
     public AudioSource audioSrc;
     int size;
     static bool isFlipped = false;
@@ -50,10 +51,15 @@ public class eightBallScript : MonoBehaviour
         //flipped and !isFlipped = Change phrase / empty text / change isFlipped to true
         //not flipped and isFlipped = isFlipped to false / Display text
         //not flipped and !isFlipped = do Nothing
+        //print("Transform rotx: " + transform.localEulerAngles.x + "\n");
+        //print("Transform roty: " + transform.localEulerAngles.y + "\n");
+        print("Transform rotz: " + transform.localEulerAngles.z + "\n");
 
         //print("Transform: " + transform.up.y + "\n");
-        if (transform.up.y < 0f && !isFlipped){
-            print("Transform: " + transform.up.y + "\n");
+       // print("isFlipped: " + isFlipped + "\n");
+        //transform.up.y < 0
+        if (transform.localEulerAngles.z >= 160 && transform.localEulerAngles.z <= 210 && !isFlipped){
+            print("in if");
             audioSrc.Play();
             isFlipped = true;
             int num = Random.Range(0, size);
@@ -61,7 +67,7 @@ public class eightBallScript : MonoBehaviour
             ballText.GetComponent<TextMeshPro>().text = "";
         }
 
-        else if(transform.up.y >= 0f && isFlipped){
+        else if((transform.localEulerAngles.z < 160 || transform.localEulerAngles.z > 210) && isFlipped){
             print("Transform in else if");
             ballText.GetComponent<TextMeshPro>().text = strPhrase;
             isFlipped = false;
