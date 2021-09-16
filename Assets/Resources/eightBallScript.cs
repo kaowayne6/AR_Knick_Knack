@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class eightBallScript : MonoBehaviour
 {
     public GameObject ballText;
+    public AudioSource audioSrc;
     int size;
     static bool isFlipped = false;
     static string strPhrase = "";
@@ -15,6 +17,7 @@ public class eightBallScript : MonoBehaviour
     void Start()
     {
         size = 20;
+        //audioSrc = gameObject.GetComponent<AudioSource>();
         phrase = new string[] 
         {
             "It is Certain",
@@ -51,6 +54,7 @@ public class eightBallScript : MonoBehaviour
         //print("Transform: " + transform.up.y + "\n");
         if (transform.up.y < 0f && !isFlipped){
             print("Transform: " + transform.up.y + "\n");
+            audioSrc.Play();
             isFlipped = true;
             int num = Random.Range(0, size);
             strPhrase = phrase[num];  
