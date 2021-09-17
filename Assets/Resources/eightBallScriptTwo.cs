@@ -17,30 +17,20 @@ public class eightBallScriptTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        size = 20;
+        size = 10;
         //audioSrc = gameObject.GetComponent<AudioSource>();
         phrase = new string[] 
         {
-            "It is Certain",
-            "It is decidedly so",
-            "Without a doubt",
-            "Yes definitely",
-            "You may rely on it",
-            "As I see it, yes.",
-            "Most likely",
-            "Outlook good",
-            "Yes",
-            "Signs point to yes",
-            "Reply hazy, try again",
-            "Ask again later",
-            "Better not tell you now",
-            "Cannot predict now",
-            "Concentrate and ask again",
-            "Don't count on it",
-            "My reply is no",
-            "My sources say no",
-            "Outlook not so good",
-            "Very doubtful"
+            "Yeah that sounds lit!",
+            "Go for it!",
+            "Sounds like fun!",
+            "Yeah. You got the right idea.",
+            "Is that even a question? Yes",
+            "eh",
+            "Maybe yes? Maybe no?",
+            "I couldn't tell you",
+            "Doesn't sound good to me",
+            "Naw fam."
         };
     }
 
